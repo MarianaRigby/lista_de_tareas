@@ -1,10 +1,12 @@
 //console.log("Hello from Vercel!");
 //Defino el array de Tareas
 let tareas = [];
+let indiceSeleccionado = null;
 //Obtengo elementos del DOM
 const tareaInput = document.getElementById("tareaInput");
 const agregarButton = document.getElementById("agregarButton");
 const listaTareas = document.getElementById("listaTareas");
+const editarButton = document.getElementById("editarButton");
 //Función para agregar una tarea
 function agregarTarea() {
   const tareaTexto = tareaInput.value.trim();
@@ -34,7 +36,7 @@ function eliminarTarea(indice) {
     mostrarTareas(); // Actualizar la lista en pantalla
   }
 }
-//}
+
 //Función para mostrar tareas
 function mostrarTareas() {
   listaTareas.innerHTML = ""; // Limpia la lista antes de actualizar
@@ -43,8 +45,9 @@ function mostrarTareas() {
     html += `<li class="text-blue-500 text-lg" id=''>
     
     <div class="flex space-x-4">
-      <p>
+      <p onclick="seleccionarTarea(${index})">
           Tarea ${index + 1}:  ${tarea}
+
       </p>  
       <button onclick="eliminarTarea(${index})" class="bg-red-500 text-white px-2 h-7 rounded">X</button>    
       </div>
@@ -52,5 +55,26 @@ function mostrarTareas() {
   });
   listaTareas.innerHTML = html;
 }
+function editarTarea() {
+  if (indiceSeleccionado !== null) {
+    tareas[indiceSeleccionado] = tareaInput.value; // Actualiza la tarea en el array
+    mostrarTareas(); // Vuelve a renderizar la lista
+    indiceSeleccionado = null; // Resetear el índice
+    tareaInput.value = ""; // Limpiar el input
+    editarButton.style.display = "none";
+    agregarButton.style.display = "block";
+  }
+  console.log(indiceSeleccionado);
+  console.log(tareaInput.value);
+}
+
+function seleccionarTarea(indice) {
+  tareaInput.value = tareas[indice];
+  indiceSeleccionado = indice;
+  agregarButton.style.display = "none";
+  editarButton.style.display = "block";
+}
+editarButton.style.display = "none";
 // Agregar el evento click al botón
 agregarButton.addEventListener("click", agregarTarea);
+editarButton.addEventListener("click", editarTarea);
