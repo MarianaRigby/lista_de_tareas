@@ -40,9 +40,9 @@ function eliminarTarea(indice) {
 //Función para mostrar tareas
 function mostrarTareas() {
   listaTareas.innerHTML = ""; // Limpia la lista antes de actualizar
-  let html = "";
+  let htmlDeLaLista = "";
   tareas.forEach((tarea, index) => {
-    html += `<li class="text-blue-500 text-lg" id=''>
+    htmlDeLaLista += `<li class="text-blue-500 text-lg" id=''>
     
     <div class="flex space-x-4">
       <p onclick="seleccionarTarea(${index})">
@@ -53,7 +53,8 @@ function mostrarTareas() {
       </div>
     </li>`;
   });
-  listaTareas.innerHTML = html;
+  console.log(htmlDeLaLista);
+  listaTareas.innerHTML = htmlDeLaLista;
 }
 function editarTarea() {
   if (indiceSeleccionado !== null) {
