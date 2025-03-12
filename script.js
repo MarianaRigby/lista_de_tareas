@@ -12,24 +12,32 @@ function agregarTarea() {
     tareas.push(tareaTexto); // Agrega al array
     tareaInput.value = ""; // Limpia el input
     mostrarTareas(); // Llama a la función para mostrar las tareas
+  } else {
+    // Si no tiene algun valor.
+    // Mostrar un mensaje de que tiene que ingresar el nombre de la tarea
   }
+}
+
+function eliminarTarea(indice) {
+  // Aqui eliminar la tarea seleccionada
+  alert("Eliminando tarea numero: " + (indice + 1));
 }
 //Función para mostrar tareas
 function mostrarTareas() {
   listaTareas.innerHTML = ""; // Limpia la lista antes de actualizar
+  let html = "";
   tareas.forEach((tarea, index) => {
-    const li = document.createElement("li");
-    li.textContent = tarea;
-    li.classList.add(
-      "text-sky-300",
-      "border",
-      "border-sky-950",
-      "p-2",
-      "rounded-lg",
-      "bg-sky-950"
-    );
-    listaTareas.appendChild(li);
+    html += `<li class="text-blue-500 text-lg" id=''>
+    
+    <div class="flex space-x-4">
+      <p>
+          Tarea ${index + 1}:  ${tarea}
+      </p>  
+      <button onclick="eliminarTarea(${index})" class="bg-red-500 text-white px-2 h-7 rounded">X</button>    
+      </div>
+    </li>`;
   });
+  listaTareas.innerHTML = html;
 }
 // Agregar el evento click al botón
 agregarButton.addEventListener("click", agregarTarea);
