@@ -30,15 +30,15 @@ let html = `
     
      
 
-    <h2 class="text-xl  font-medium font-serif text-sky-950 mt-3">Nombre: ${miPerfil.nombreApellidos}</h2>
+    <h2 class="text-xl  font-medium  text-sky-950 mt-3">Nombre: ${miPerfil.nombreApellidos}</h2>
 
-    <h3 class="font-serif font-semibold text-center text-2xl mt-4">Datos del contacto</h3>
+    <h3 class=" font-semibold text-center text-2xl mt-4">Datos del contacto</h3>
     <hr class=" border border-sky-800">
-    <p class="font-serif font-medium text-xl text-sky-950 mb-2">Edad: ${miPerfil.edad} años</p>
-    <p class="font-serif   font-medium text-xl text-sky-950 mb-2">Correo: ${miPerfil.correo}</p>
-    <p class="font-serif font-medium text-xl text-sky-950 mb-2">Celular: ${miPerfil.celular}</p>
+    <p class="font-medium text-xl text-sky-950 mb-2">Edad: ${miPerfil.edad} años</p>
+    <p class="  font-medium text-xl text-sky-950 mb-2">Correo: ${miPerfil.correo}</p>
+    <p class="font-medium text-xl text-sky-950 mb-2">Celular: ${miPerfil.celular}</p>
   
-    <p class="font-serif font-medium text-xl text-sky-950 mb-2">Colores Favoritos:</p>
+    <p class="font-medium text-xl text-sky-950 mb-2">Colores Favoritos:</p>
     
 
 `;
@@ -60,4 +60,3 @@ miPerfil.coloresFavoritos.forEach((color) => {
 });
 
 perfilContainer.innerHTML = html;
-html += `<p>mmkedmekdmek</p>`;
