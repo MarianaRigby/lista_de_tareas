@@ -44,15 +44,15 @@ let html = `
 `;
 
 miPerfil.coloresFavoritos.forEach((color) => {
-  if (color.toLocaleLowerCase() === "azul") {
+  if (color === "azul") {
     colorClase = "bg-blue-500";
-  } else if (color.toLowerCase() === "rosita") {
+  } else if (color === "rosita") {
     colorClase = "bg-pink-500";
-  } else if (color.toLowerCase() === "morado") {
+  } else if (color === "morado") {
     colorClase = "bg-purple-500";
-  } else if (color.toLowerCase() === "amarillo") {
+  } else if (color === "amarillo") {
     colorClase = "bg-yellow-500";
-  } else if (color.toLowerCase() === "verde") {
+  } else if (color === "verde") {
     colorClase = "bg-green-500";
   }
 
